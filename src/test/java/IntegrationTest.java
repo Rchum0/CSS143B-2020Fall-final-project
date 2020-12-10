@@ -108,6 +108,49 @@ public class IntegrationTest {
         return testCases;
     }
 
+    private List<TestCase> getPersonalTestCase() {
+
+        List<String> newDoc = new ArrayList<>(Arrays.asList(
+                "hello how are you and i am a big doggo",
+                "how are you doing small doggo",
+                "i am good just living life big doggo they are ready to go home",
+                "then they just both left and went home"
+        ));
+
+        List<TestCase> testCases = new ArrayList<>(Arrays.asList(
+                new TestCase(
+                        newDoc,
+                        "big doggo",
+                        new ArrayList<>(Arrays.asList(0, 2))),
+                new TestCase(
+                        newDoc,
+                        "you",
+                        new ArrayList<>(Arrays.asList(0, 1))),
+                new TestCase(
+                        newDoc,
+                        "home",
+                        new ArrayList<>(Arrays.asList(2, 3))),
+                new TestCase(
+                        newDoc,
+                        "just",
+                        new ArrayList<>(Arrays.asList(2, 3))),
+                new TestCase(
+                        newDoc,
+                        "living life",
+                        new ArrayList<>(Util.emptyResult())),
+                new TestCase(
+                        newDoc,
+                        "how",
+                        new ArrayList<>(Arrays.asList(0, 2))),
+                new TestCase(
+                        newDoc,
+                        "and",
+                        new ArrayList<>(Arrays.asList(0, 3)))
+        )
+        );
+        return testCases;
+    }
+
     private class TestCase {
         private List<String> documents;
         private String target;
